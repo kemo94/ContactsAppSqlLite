@@ -15,9 +15,9 @@ public class DataBaseWrapper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_CREATE = "create table " + TABLE_NAME
 
-            + "(" + NAME + " text primary key , "
-            + ADDRESS + " text not null , "
-            + NUMBER + " text not null );" ;
+            + "(" + NUMBER + " text primary key , "
+            + ADDRESS + " text , "
+            + NAME + " text not null );" ;
 
     public DataBaseWrapper(Context context) {
 
@@ -32,7 +32,6 @@ public class DataBaseWrapper extends SQLiteOpenHelper {
     }
 
     @Override
-
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);

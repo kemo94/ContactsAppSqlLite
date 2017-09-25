@@ -41,6 +41,7 @@ public class ContactOperations {
         database.insert(DataBaseWrapper.TABLE_NAME, null, values);
 
     }
+
     public ArrayList<ContactItem> getContacts() {
         ArrayList<ContactItem> contactItemsList = new ArrayList<ContactItem>();
 
@@ -67,9 +68,9 @@ public class ContactOperations {
 
         ContactItem contactItem = new ContactItem();
 
-        contactItem.setName(cursor.getString(0));
+        contactItem.setNumber(cursor.getString(0));
         contactItem.setAddress(cursor.getString(1));
-        contactItem.setNumber(cursor.getString(2));
+        contactItem.setName(cursor.getString(2));
 
         return contactItem;
 
