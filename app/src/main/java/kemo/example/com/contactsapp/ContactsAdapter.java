@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -33,6 +34,14 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
         holder.addressTxv.setText(contactItems.get(i).getAddress());
         holder.numberTxv.setText(contactItems.get(i).getNumber());
 
+        holder.deleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                contactItems.remove(i);
+                notifyDataSetChanged();
+                
+            }
+        });
     }
 
     @Override
@@ -45,12 +54,12 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.Contac
 
         //declaration
         public TextView nameTxv , numberTxv , addressTxv;
+        public Button deleteBtn ;
         public ContactViewHolder(View view) {
             super(view);
             nameTxv = (TextView) view.findViewById(R.id.name_txv);
             numberTxv = (TextView) view.findViewById(R.id.number_txv);
             addressTxv = (TextView) view.findViewById(R.id.address_txv);
-
 
         }
     }
